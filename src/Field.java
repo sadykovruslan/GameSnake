@@ -14,23 +14,21 @@ public class Field extends JPanel implements ActionListener {
     private Image snake;
     private Image apple;
 
-//    положения яблока на поле (X, Y)
+//    координаты яблока на поле (X, Y)
     private int appleX;
     private int appleY;
 //    массивы для хранения X и Y змейки соответственно:
-    private int x[] = new int[ALL_DOTS];
-    private int y[] = new int[ALL_DOTS];
-    private int snakeSize;
-    private Timer timer;
+    private final int[] x = new int[ALL_DOTS];
+    private final int[] y = new int[ALL_DOTS];
+    private int snakeSize = 3;
 
-//    поля отвечающее за текущее направление змейки
+    //    поля отвечающее за текущее направление змейки
     private boolean left = false;
     private boolean right = true;
     private boolean up = false;
     private boolean down = false;
 
-//    Статус игры. Мы в игре или нет
-    private boolean inGame = true;
+    private boolean inGame = true; // Статус игры. Мы в игре или нет
 
     public Field(){
         setBackground(Color.black);
@@ -41,17 +39,16 @@ public class Field extends JPanel implements ActionListener {
     }
 
     public void initGame(){
-        snakeSize = 3;
-        for (int i = 0; i < snakeSize; i++){
+        for (int i = 0; i < snakeSize; i++) {
             x[i] = 48 - i * DOT_SIZE;
-            y[i] = 48;
-            timer = new Timer(250, this);
+            y[i] = 16;
+        }
+        Timer timer = new Timer(250, this);
             timer.start();
             createApple();
-        }
     }
 
-    public void createApple(){
+    public void createApple(){ // рандомное появление блок на поле
         appleX = new Random().nextInt(20)*DOT_SIZE;
         appleY = new Random().nextInt(20)*DOT_SIZE;
     }
@@ -74,12 +71,12 @@ public class Field extends JPanel implements ActionListener {
             }
         } else {
             String str = "Game Over!!!";
-            g.drawString(str, 100, 30);
+            g.drawString(str, 100, SIZE/2);
         }
     }
 
     public void move(){
-        for (int i = snakeSize; i < 0; i--){
+        for (int i = snakeSize; i > 0; i--){
             x[i] = x[i-1];
             y[i] = y[i-1];
         }
@@ -97,43 +94,34 @@ public class Field extends JPanel implements ActionListener {
         }
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if(inGame){
-            checkApple();
-
-
-        }
-        repaint();
-    }
-
-    private void checkApple() {
+    private void eatApple() {
         if (x[0] == appleX && y[0] == appleY){
             snakeSize++;
             createApple();
-            checCollisioons();
-            
+            checkCollisions();
         }
     }
 
-    private void checCollisioons() {
-        for (int i = snakeSize; i < 0; i++) {
-            if (i > 4 && x[0] ==x[i] && y[0] == y[i]){
+    private void checkCollisions() {
+        for (int i = snakeSize; i > 0; i--) {
+            if (i > 4 && x[0] == x[i] && y[0] == y[i]) {
                 inGame = false;
+                break;
             }
         }
-        if (x[0] > SIZE){
+        if (x[0] > SIZE || x[0] < 0 || y[0] > SIZE || y[0] < 0){
             inGame = false;
         }
-        if (x[0] < 0){
-            inGame = false;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(inGame){
+            eatApple();
+            checkCollisions();
+            move();
         }
-        if (y[0] > SIZE){
-            inGame = false;
-        }
-        if (y[0] < 0){
-            inGame = false;
-        }
+        repaint();
     }
 
     class keyListener extends KeyAdapter {
@@ -167,4 +155,3 @@ public class Field extends JPanel implements ActionListener {
         }
     }
 }
-
