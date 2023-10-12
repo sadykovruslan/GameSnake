@@ -1,3 +1,5 @@
+package GUI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -6,10 +8,10 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
-public class Field extends JPanel implements ActionListener {
-    private final int SIZE = 320;
-    private final int DOT_SIZE = 16; // сколько пикселей будет занимать одна ячейка змейки или яблока
-    private final int ALL_DOTS = 400; // сколько всего точек может поместиться на игровом поле. т.е:
+class Field extends JPanel implements ActionListener {
+    private static final int SIZE = 320;
+    private static final int DOT_SIZE = 16; // сколько пикселей будет занимать одна ячейка змейки или яблока
+    private static final int ALL_DOTS = 400; // сколько всего точек может поместиться на игровом поле. т.е:
     // в размер поля 320 может поместиться 20 DOT_SIZE (320/16) в ширину и столько же в длину. итого 20*20=400
     private Image snake;
     private Image apple;
@@ -38,6 +40,14 @@ public class Field extends JPanel implements ActionListener {
         setFocusable(true);
     }
 
+    private void loadImages(){
+        ImageIcon appleView = new ImageIcon("apple.png");
+        apple =  appleView.getImage();
+
+        ImageIcon snakeView = new ImageIcon("snake.png");
+        snake = snakeView.getImage();
+    }
+
     public void initGame(){
         for (int i = 0; i < snakeSize; i++) {
             x[i] = 48 - i * DOT_SIZE;
@@ -51,14 +61,6 @@ public class Field extends JPanel implements ActionListener {
     public void createApple(){ // рандомное появление блок на поле
         appleX = new Random().nextInt(20)*DOT_SIZE;
         appleY = new Random().nextInt(20)*DOT_SIZE;
-    }
-
-    private void loadImages(){
-        ImageIcon appleView = new ImageIcon("apple.png");
-        apple =  appleView.getImage();
-
-        ImageIcon snakeView = new ImageIcon("snake.png");
-        snake = snakeView.getImage();
     }
 
     @Override
@@ -106,7 +108,6 @@ public class Field extends JPanel implements ActionListener {
         for (int i = snakeSize; i > 0; i--) {
             if (i > 4 && x[0] == x[i] && y[0] == y[i]) {
                 inGame = false;
-                break;
             }
         }
         if (x[0] > SIZE || x[0] < 0 || y[0] > SIZE || y[0] < 0){
