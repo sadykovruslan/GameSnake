@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c876945-d672-4203-a114-77783ecb5ff2" name="Changes" comment="version 1.0&#10;without menu and stats">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelgame/Apple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelgame/Direction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelgame/Snake.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelgame/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apple.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/apple.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snake.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/snake.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelgame/GraphicField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +22,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -40,15 +44,17 @@
     <option name="flattenPackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java\GameSnake\src" />
+      <recent name="D:\Java\GameSnake\src\GUI" />
       <recent name="D:\Java\GameSnake" />
     </key>
   </component>
@@ -97,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696790433944</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="version 1.0&#10;without menu and stats">
+      <created>1697138799736</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1697138799736</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

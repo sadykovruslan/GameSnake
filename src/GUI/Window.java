@@ -1,5 +1,7 @@
 package GUI;
 
+import modelgame.GraphicField;
+
 import javax.swing.*;
 
 public class Window extends JFrame {
@@ -8,7 +10,7 @@ public class Window extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(320,320);
         setLocation(400,400);
-        add(new Field());
+        add(new GraphicField());
         setVisible(true);
     }
 
